@@ -52,6 +52,121 @@ public class Poke {
 
     @ManyToOne /* Many poke in this table, only one user for each */
     private User user;
+
+    public Poke(PokeNames pokeNames, int haveCP, int haveHP, int wantCPLow, int wantCPHigh, int wantHPLow, int wantHPHigh, int shiny, int specialForm, int size, String notes, User user) {
+        this.pokeNames = pokeNames;
+        this.haveCP = haveCP;
+        this.haveHP = haveHP;
+        this.wantCPLow = wantCPLow;
+        this.wantCPHigh = wantCPHigh;
+        this.wantHPLow = wantHPLow;
+        this.wantHPHigh = wantHPHigh;
+        this.shiny = shiny;
+        this.specialForm = specialForm;
+        this.size = size;
+        this.notes = notes;
+        this.user = user;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public PokeNames getPokeNames() {
+        return pokeNames;
+    }
+
+    public void setPokeNames(PokeNames pokeNames) {
+        this.pokeNames = pokeNames;
+    }
+
+    public int getHaveCP() {
+        return haveCP;
+    }
+
+    public void setHaveCP(int haveCP) {
+        this.haveCP = haveCP;
+    }
+
+    public int getHaveHP() {
+        return haveHP;
+    }
+
+    public void setHaveHP(int haveHP) {
+        this.haveHP = haveHP;
+    }
+
+    public int getWantCPLow() {
+        return wantCPLow;
+    }
+
+    public void setWantCPLow(int wantCPLow) {
+        this.wantCPLow = wantCPLow;
+    }
+
+    public int getWantCPHigh() {
+        return wantCPHigh;
+    }
+
+    public void setWantCPHigh(int wantCPHigh) {
+        this.wantCPHigh = wantCPHigh;
+    }
+
+    public int getWantHPLow() {
+        return wantHPLow;
+    }
+
+    public void setWantHPLow(int wantHPLow) {
+        this.wantHPLow = wantHPLow;
+    }
+
+    public int getWantHPHigh() {
+        return wantHPHigh;
+    }
+
+    public void setWantHPHigh(int wantHPHigh) {
+        this.wantHPHigh = wantHPHigh;
+    }
+
+    public int getShiny() {
+        return shiny;
+    }
+
+    public void setShiny(int shiny) {
+        this.shiny = shiny;
+    }
+
+    public int getSpecialForm() {
+        return specialForm;
+    }
+
+    public void setSpecialForm(int specialForm) {
+        this.specialForm = specialForm;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
 
 

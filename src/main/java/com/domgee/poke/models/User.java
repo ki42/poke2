@@ -14,6 +14,9 @@ public class User {
     private int id;
 
     @NotNull
+    private int friendId;
+
+    @NotNull
     @Size(min=3, max=12)
     private String userName;
 
@@ -34,18 +37,19 @@ public class User {
 
     private int miles;
 
-    @Size(min=3, max=25)
+    @Size(min=3, max=40)
     private String email;
 
     private String timeSpan;
 
     @OneToMany
-    @JoinColumn(name="poke_id")
+    @JoinColumn(name="user_id")
     private List<Poke> poke = new ArrayList<>();
 
     public User(){}
 
-    public User(String userName, String hashPassword, int salt, int playerLevel, int zipCode, int miles, String email, String timeSpan) {
+    public User(int friendId, String userName, String hashPassword, int salt, int playerLevel, int zipCode, int miles, String email, String timeSpan) {
+        this.friendId = friendId;
         this.userName = userName;
         this.hashPassword = hashPassword;
         this.salt = salt;
@@ -56,14 +60,96 @@ public class User {
         this.timeSpan = timeSpan;
     }
 
+    public User(int friendId, String userName, String hashPassword, int salt) {
+        this.friendId = friendId;
+        this.userName = userName;
+        this.hashPassword = hashPassword;
+        this.salt = salt;
+    }
+
     public int getId() {
         return id;
     }
 
+    public int getFriendId() {
+        return friendId;
+    }
 
+    public void setFriendId(int friendId) {
+        this.friendId = friendId;
+    }
 
+    public String getUserName() {
+        return userName;
+    }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
+    public String getHashPassword() {
+        return hashPassword;
+    }
+
+    public void setHashPassword(String hashPassword) {
+        this.hashPassword = hashPassword;
+    }
+
+    public int getSalt() {
+        return salt;
+    }
+
+    public void setSalt(int salt) {
+        this.salt = salt;
+    }
+
+    public int getPlayerLevel() {
+        return playerLevel;
+    }
+
+    public void setPlayerLevel(int playerLevel) {
+        this.playerLevel = playerLevel;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public int getMiles() {
+        return miles;
+    }
+
+    public void setMiles(int miles) {
+        this.miles = miles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTimeSpan() {
+        return timeSpan;
+    }
+
+    public void setTimeSpan(String timeSpan) {
+        this.timeSpan = timeSpan;
+    }
+
+    public List<Poke> getPoke() {
+        return poke;
+    }
+
+    public void setPoke(List<Poke> poke) {
+        this.poke = poke;
+    }
 
 //    @Override
 //    public String toString() {

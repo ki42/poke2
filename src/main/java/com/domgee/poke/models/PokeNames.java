@@ -18,6 +18,15 @@ public class PokeNames {
     private String name;
 
     @OneToMany
-    @JoinColumn(name="poke_id")
+    @JoinColumn(name="pokenames_id")
     private List<Poke> poke = new ArrayList<>();
+
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

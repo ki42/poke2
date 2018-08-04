@@ -6,9 +6,47 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
-<p>Hello World!</p>
+<table><tr><td>
+<H3>New User</H3>
 
+<form method="post" style="max-width:200px;" th:object="${user}" action="/validate">
+    <div>
+    <label>Frienship ID</label>
+    <input type="text" name="friendId"></input>
+    </div>
+    <div>
+    <label>New User Name:</label>
+    <input type="text" name="userName"></input>
+    <!-- <span th:errors="*{userName}" class="error"></span> -->
+    </div>
+    <div>
+    <label>Password:</label>
+    <input type="text" name="password"></input>
+    </div>
+    <input type="submit" value="Create Profile" />
+</form>
+    </td>
+    <td width="400ex"></td>
+    <td valign="top">
+    <H3>Returning User</H3>
+    <form method="post" style="max-width:200px;" th:object="${user}" action="/validateExist">
+        <div>
+            <input type="hidden" name="friendId"/>
+        </div>
+        <div>
+            <label>New User Name:</label>
+            <input type="text" name="userName"></input>
+            <span th:errors="*{userName}" class="error"></span>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="text" name="password"></input>
+        </div>
 
-
+    <input type="submit" value="Login" />
+</form>
+    </td>
+    </tr>
+</table>
 </body>
 </html>
