@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<div class="left-column">
+<p>New User</p>
+
+<form method="post" style="max-width:200px;" th:object="${user}" action="/validate">
+    <div>
+    <label>Frienship ID</label>
+    <input type="text" name="friendId"></input>
+    <span th:errors="*{friendId}" class="error"></span>
+    </div>
+    <div>
+    <label>New User Name:</label>
+    <input type="text" name="friendId"></input>
+    <span th:errors="*{userName}" class="error"></span>
+    </div>
+    <div>
+    <label>Password:</label>
+    <input type="text" name="password"></input>
+    </div>
+    <input type="submit" value="Create Profile" />
+</form>
+</div>
+</body>
+</html>
