@@ -35,11 +35,11 @@ public class UserInfo {
         return "index";
     }
     @RequestMapping(value = "validate", method= RequestMethod.POST)
-    public String add(@ModelAttribute UserStorage user,
+    public String add(@ModelAttribute UserStorage newUser,
                       Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "User Sign In");
-            model.addAttribute("user", user);
+            model.addAttribute("user", newUser);
             model.addAttribute("errors", errors);
             return "index";
         }
@@ -47,11 +47,14 @@ public class UserInfo {
         //TODO: store the whole thing as a type of User object, not saved to the database yet...
         //TODO: pass the new object into the next view
 
+        User sarah = new User(newUser.getFriendId(), newUser.getUserName(), newUser.getPassword());
+        userDao.save(sarah);
         model.addAttribute("title", "More User Information");
-        model.addAttribute("user", user);
+        model.addAttribute("user", newUser);
         return "temp";
     }
-
+    
+//this is for index users that already exist, they login and get directed to search results
     @RequestMapping(value = "validateExist", method= RequestMethod.POST)
     public String validateExist(@ModelAttribute @Valid UserStorage user,
                       Errors errors, Model model) {
@@ -62,7 +65,7 @@ public class UserInfo {
         }
         //TODO: Get the appropriate user from database
         //TODO: Get their associated Pokemon
-        //TODO: Run the related search and return velevant objects
+        //TODO: Run the related search and return relevant objects
         //TODO: redirect to search results page that displays their data at the top
 
 //        model.addAttribute("title", "More User Information");

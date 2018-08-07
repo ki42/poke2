@@ -28,16 +28,13 @@ public class User {
     private int salt;
 
     @NotNull
-    @Size(min=1, max=2)
     private int playerLevel;
 
     @NotNull
-    @Size(min=5, max=5)
     private int zipCode;
 
     private int miles;
 
-    @Size(min=3, max=40)
     private String email;
 
     private String timeSpan;
@@ -65,6 +62,12 @@ public class User {
         this.userName = userName;
         this.hashPassword = hashPassword;
         this.salt = salt;
+    }
+
+    public User(int friendId, String userName, String hashPassword) {
+        this.friendId = friendId;
+        this.userName = userName;
+        this.hashPassword = hashPassword;
     }
 
     public int getId() {
